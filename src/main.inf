@@ -1,0 +1,113 @@
+Constant TEST_VERSION;
+
+Constant Story "Heist";
+Constant Headline
+    "^A sneaky thief adventure^
+     By Ness Morris (2018)^^";
+
+Include "Parser";
+
+Object LibraryMessages
+  with before [;
+         !Examine:
+       ];
+
+Include "VerbLib";
+
+Link "disguise_amulet";
+Link "destruction_disk";
+
+Class ObjectiveDevice;
+
+Class SelfBodyPart;
+
+Class Room;
+
+Class Scenic
+  has scenery;
+
+Room Test_Chamber "Test Chamber"
+  has light,
+  with  name 'chamber' 'room',
+        initial
+          "^^
+           ~Here I am in the test chamber. Plain as ever, with its
+            featureless white walls and floor, flourescent lighting,
+            and no apparent way out. I never understand why I have to
+            be incapacitated, wake up here, work, and then be knocked
+            out again to wake up at home. I mean, I don't have to commute
+            (or at least be awake for it), but it is all a little bit...
+            disconcerting. Especially the fact that my job has me working
+            in a room without window or doors. But here I am, getting all
+            personal when I know it's against the rules. But I am supposed
+            to report my feelings, and the lack of exits leaves me feeling
+            definitively disconcerted.~",
+        description [;
+          "~It's a featureless white room, lit with flourescent panels.~",
+        "^^~There's a stainless-steel table with its legs are bolted
+            into the floor in the center of the room. It would look at
+            home in a hospital.~";
+        ];
+
+Object -> Test_Chamber_Table "table"
+  has scenery supporter,
+  with  name 'table' 'surface',
+        description
+          "~It's a stainless steel table with a smooth surface. Its legs
+            are bolted to the floor.~",
+        found_in Test_Chamber,
+        before [;
+          Taste:
+            "~With all due respect, I'm not gonna lick the table. I don't
+              know what kinda tests y'all been running in here. You can
+              fire me if you want, but my tongue is not coming into 
+              contact with this table.~";
+          Drink:
+            "~Drink... the table? Don't we have serious work to be doing?~";
+          Touch:
+            "~", (string) RandomAffirmative(),
+            "touching the table. It's cool and smooth.~";
+! TODO: add actual fingerprints object to table
+        ];
+
+[ Initialise;
+  location = Test_Chamber;
+  move DisguiseAmulet to Test_Chamber_Table;
+  move DestructionDisk to Test_Chamber_Table;
+            "^^^
+              ~Is this thing on? It's certainly strange, thinking in
+              text like this. Funny that they designed a neural comms
+              implant that only communicates through text. Must be some
+              reason the spooks want to keep it text-only. They don't
+              pay me to wonder about the reasons they do things the way
+              they do. They pay me to be disposable and test these
+              devices.~^^";
+];
+
+Include "Grammar";
+
+Verb 'lick' = 'taste';
+
+[ BiteSub; "~Bite? Bite what?~"; ];
+Verb 'nibble' 'chew' 'bite'
+    * -> Bite
+    * noun -> Bite
+    * 'on' noun -> Bite;
+
+Verb 'grind'
+    * 'teeth' -> Bite;
+
+[ SlideSub; "~Slide... what?~"; ];
+Verb 'slide'
+    * noun -> Slide;
+
+[ RandomAffirmative;
+    switch( random(3) )
+    {
+      1: return "Ok; ";
+      2: return "Copy that; ";
+      3: return "Alright; ";
+    }
+]; 
+
+![ ExamineSub; "~I don't see what you're talking about...~" ]

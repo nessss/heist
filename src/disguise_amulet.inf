@@ -1,0 +1,87 @@
+Include "linklpa";
+Include "linklv";
+
+Object DisguiseAmulet "jeweled amulet"
+  has transparent,
+  with activated false,
+       remaining_time 0,
+       button_examined false,
+       both_buttons_examined false,
+       name 'jeweled' 'amulet',
+       description 
+         "~It's an oblong silvery-metal amulet, with matching chain.
+          In the center of the amulet is a large jewel.
+          Two ovals, one of dark crystal and one of bright, both 
+          with iridescent tints, are set to the right and left of the 
+          large jewel, respectively.
+          Oh, and it looks like there is also a small lever on the edge.~";
+
+Object -> DisguiseAmulet_LargeJewel "large jewel"
+  with appearance,
+       name 'large' 'jewel' 'crystal',
+       description 
+         "~It's a large jewel in something similar to an emerald cut,
+          set in the center of the amulet.~";
+
+Object -> DisguiseAmulet_DarkButton "right jewel"
+  with examined_first false,
+       name 'right' 'black' 'dark' 'crystal',
+       description [;
+         if( DisguiseAmulet.button_examined == false )
+         {
+           DisguiseAmulet.button_examined = true;
+           self.examined_first = true;
+           "~It's a small dark crystal oval, set to the right side of
+             the amulet. Its surface has this strange iridescent tint...
+             seems to shift and swirl, even when I hold the amulet still.
+             It protrudes from the amulet slightly.~";
+         }
+         else 
+         { 
+           print "~It's the dark crystal oval, to the right of the large
+               jewel on the amulet. ";
+	   if( self.examined_first == true )
+           {
+            "It has that weird sheen.~";
+           }
+           else
+           {
+            "It has the same weird sheen as the bright crystal.~";
+           };
+         };
+       ];
+
+Object -> DisguiseAmulet_BrightButton "right jewel"
+  with examined_first false,
+       name 'left' 'bright' 'light' 'white' 'crystal',
+       description [;
+         if( DisguiseAmulet.button_examined == false )
+         {
+           DisguiseAmulet.button_examined = true;
+           self.examined_first = true;
+           "~It's a small bright crystal oval, set to the left side of
+             the amulet. Its surface has this strange iridescent tint...
+             seems to shift and swirl, even when I hold the amulet still.
+             It protrudes from the amulet slightly.~";
+         }
+         else 
+         { 
+           print "~It's the bright crystal oval, to the left of the large
+               jewel on the amulet. ";
+	   if( self.examined_first == true )
+           {
+            "It has that weird sheen.~";
+           }
+           else
+           {
+            "It has the same weird sheen as the dark crystal.~";
+           };
+         };
+       ];
+
+Object -> DisguiseAmulet_Lever "small lever"
+  with position,
+    name 'small' 'lever',
+    description
+      "~It's a small silvery-metal lever set into the side of the amulet.
+       It only protudes a centimeter or so.~";

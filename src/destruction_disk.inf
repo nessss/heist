@@ -1,0 +1,129 @@
+Include "linklpa";
+Include "linklv";
+
+Object DestructionDisk "disk"
+  has transparent ~open openable container,
+  with 
+    has_been_taken false,
+    has_been_dropped false,
+    has_been_opened false,
+    has_been_closed false,
+    name 'disk' 'disc',
+    description [;
+      print 
+        "~It's a silvery-metal disk, about the diameter of a coffee mug.
+          One side is smooth, and the other ";
+      if( self has open )
+      {
+        print "features a field of absolute darkness. I... don't like
+               looking at that. ";
+      }
+      else
+      {
+        print "is mostly covered by an aperture of the same metal. ";
+      }
+      "On the edge of the disk is a knob that looks like it could
+      be pushed around the circumfrence.~";
+    ],
+    before [;
+      Receive:
+        if( self hasnt open )
+        {
+          "~It doesn't seem like anything could be put into the disk
+           as it is. Perhaps if the aperture were open?~";
+        }
+        remove noun;
+        "~", (string) RandomAffirmative(),
+        "I'm dropping ", (the) noun, " into the disk. It's
+         beginning to fall. Uh, it's just dropping... Now it's 
+         too far away. I can't see it anymore.~";
+      Open:
+        if( self has open )
+        {
+          "~The aperture is already fully open. I can't open it further.~";
+        }
+      Close:
+        if( self hasnt open )
+        {
+          "~The aperture is already closed. Pushing the knob in that
+           direction seems to do nothing.~";
+        }
+    ],
+    after [;
+      Take:
+        if( self.has_been_taken == false )
+        {
+          self.has_been_taken = true;
+          "~", (string) RandomAffirmative(), "picking up the disk. Hmmm...
+           it's very light for a metal disk of its size.~";
+        }
+        else
+          "~", (string) RandomAffirmative(),
+          "I've picked the disk back up.~";
+      Drop:
+        if( self.has_been_dropped == false )
+        {
+          self.has_been_dropped = true;
+          "~Drop it? Just, like, on the floor? Ok... I guess it does
+           seem pretty durable. It made a soft clanging sound when it
+           hit the floor. Doesn't appear to be damaged.~";
+        }
+        else
+        {
+          "~", (string) RandomAffirmative(),
+          "dropping the disk again.~";
+        }
+      Open:
+        if( self.has_been_opened == false )
+        {
+          self.has_been_opened = true;
+          "~", (string) RandomAffirmative(),
+          "I'm sliding the knob around the edge of the disk.
+           The aperture is opening.
+           Woah, It's so dark underneath! It's like that vantablack stuff
+           that scientists came up with; 'the blackest black'.
+           Looking at it gives me shudders.~";
+        }
+        else
+        {
+          "~", (string) RandomAffirmative(),
+          "opening the disk back up. There's that black void again.~";
+        }
+      Close:
+        if( self.has_been_closed == false )
+        {
+          self.has_been_closed = true;
+          "~Don't have to tell me twice. I'm sliding the knob back around
+           the edge of the disk, and, sure enough, the aperture is closing.
+           I'm feeling relieved now that that thing is shut.~";
+        }
+        else
+        {
+          "~", (string) RandomAffirmative(),
+          "closing the disk again. Glad that void isn't visible anymore.~";
+        }
+    ];
+
+Object -> DestructionDisk_Aperture "aperture"
+  with name 'aperture',
+    description 
+      "~It's an aperture occupying most of one side of the disk.
+       Seems to be made of the same metal as the amulet.~",
+    before [;
+      Open: << Open DestructionDisk >>;
+      Close: << Close DestructionDisk >>;
+    ];
+
+Object -> DestructionDisk_Knob "knob"
+  with name 'knob',
+    description 
+      "~It's a knob on the edge of the disk. Looks like it could be
+       pushed around the edge.~",
+    before [;
+      Push, Pull, Slide:
+        if( DestructionDisk has open )
+        {
+          << Close DestructionDisk >>;
+        }
+        << Open DestructionDisk >>;
+    ];
