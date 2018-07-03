@@ -7,6 +7,9 @@ Constant Headline
 
 Include "Parser";
 
+!Fake_Action AttemptToDamage;
+
+
 Object LibraryMessages
   with before [;
          !Examine:
@@ -16,8 +19,14 @@ Include ">parser_errors.h";
 
 Include "VerbLib";
 
+![ AttemptToDamageSub;
+!  "~It appears undamaged.~";
+!];
+
 Include ">disguise_amulet";
 Include ">destruction_disk";
+
+Include ">clothes.h";
 
 Class ObjectiveDevice;
 
@@ -49,7 +58,8 @@ Room Test_Chamber "Test Chamber"
         "^^~There's a stainless-steel table with its legs are bolted
             into the floor in the center of the room. It would look at
             home in a hospital.~";
-        ];
+        ],
+        s_to Test_Closet;
 
 Object -> Test_Chamber_Table "table"
   has scenery supporter,
@@ -71,6 +81,63 @@ Object -> Test_Chamber_Table "table"
             "touching the table. It's cool and smooth.~";
 ! TODO: add actual fingerprints object to table
         ];
+
+Object -> Test_Personnel_1 "grumpy test subject"
+  with name 'grumpy' 'personnel' 'subject',
+       description "~One of the test subjects. He looks like he could eat me for breakfast and he's having a bad day. He's wearing a black jumpsuit, black combat boots, a black armor vest, and has a sidearm in a holster under his left arm.~",
+       life [;
+         Ask, Tell: "~He's just glaring at me. I'm not supposed to talk to him anyway.~";
+         Attack: "~Even if that didn't directly contradict my orders, I don't think I could take this guy.~";
+         Kiss: "~I'm certain that violates our employee conduct rules.~";
+       ],
+       before [;
+         Take: "~I was hired for my small frame, quick reflexes, and ability to follow directions. This guy was apparently hired for his mass and poor attitude. There's no way.~";
+       ],
+  has animate transparent;
+
+Clothes -> -> Jumpsuit "black jumpsuit"
+  with name 'jumpsuit',
+       description "~A black combat jumpsuit. It has various pockets to hold tactical gear.~",
+  has clothing;
+
+Clothes -> -> Combat_Boots "combat boots"
+  with name 'combat' 'boots',
+       description "~A pair of black combat boots. Large and intimidating.~",
+  has clothing;
+
+Object -> -> Pistol "sidearm"
+  with name 'sidearm' 'pistol' 'weapon',
+       description [;
+         if( ( self in player or self.has_been_held ) == true )
+         {
+           "It's a semi-automatic pistol. Getting a closer look, I can tell it's a Beretta M9.";
+         }
+         else
+         {
+           "~It's a semi-automatic pistol. I can't tell from here what kind.~";
+         };
+       ],
+       has_been_held false,
+       before [;
+         Take: 
+           if( self in Test_Personnel_1 )
+           {
+             "~I'm not in the habit of breaking direct orders, or attempting to grab the gun of someone who's staring right at me.~";
+           };
+       ];
+
+
+Object -> Test_Personell_2 "aloof test subject"
+  with name 'aloof' 'personell' 'subject',
+       description "~A test subject hired for these experiments. She's staring off into the distance, apparently trying to forget she's here.~",
+  has clothing;
+
+Room Test_Closet "Test Closet"
+  has light,
+  with name 'closet',
+  description "~It's a small closet. There's two shelves, an upper and a lower.~",
+  n_to Test_Chamber;
+
 
 [ Initialise;
   location = Test_Chamber;

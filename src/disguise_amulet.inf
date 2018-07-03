@@ -11,7 +11,20 @@ Object DisguiseAmulet "jeweled amulet"
           Two ovals, one of dark crystal and one of bright, both 
           with iridescent tints, are set to the right and left of the 
           large jewel, respectively.
-          Oh, and it looks like there is also a small lever on the edge.~";
+          Oh, and it looks like there is also a small lever on the edge.~",
+       before [;
+         ThrowAt: 
+           if( second in player )
+           {
+             "~I think I should put that down before throwing something at it.~";
+           }
+           print "[DisguiseAmulet.ThrowAt before]";
+           print "~", (string) RandomAffirmative();
+           print "throwing amulet at ", (the) second, ".~";
+           rfalse;
+         !AttemptToDamage:
+         !  "~The amulet appears undamaged.~";
+       ];
 
 Object -> DisguiseAmulet_LargeJewel "large jewel"
   with appearance,
