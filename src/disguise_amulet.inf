@@ -18,12 +18,12 @@ Object DisguiseAmulet "jeweled amulet"
            {
              "~I think I should put that down before throwing something at it.~";
            }
-           print "[DisguiseAmulet.ThrowAt before]";
            print "~", (string) RandomAffirmative();
            print "throwing amulet at ", (the) second, ".~";
            rfalse;
-         !AttemptToDamage:
-         !  "~The amulet appears undamaged.~";
+         AttemptToDamage:
+           print "^~The amulet appears undamaged.~";
+           rfalse;
        ];
 
 Object -> DisguiseAmulet_LargeJewel "large jewel"

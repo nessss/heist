@@ -7,8 +7,7 @@ Constant Headline
 
 Include "Parser";
 
-!Fake_Action AttemptToDamage;
-
+Fake_Action AttemptToDamage;
 
 Object LibraryMessages
   with before [;
@@ -18,10 +17,6 @@ Object LibraryMessages
 Include ">parser_errors.h";
 
 Include "VerbLib";
-
-![ AttemptToDamageSub;
-!  "~It appears undamaged.~";
-!];
 
 Include ">disguise_amulet";
 Include ">destruction_disk";

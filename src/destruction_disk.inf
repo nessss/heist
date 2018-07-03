@@ -35,19 +35,18 @@ Object DestructionDisk "disk"
          beginning to fall. Uh, it's just dropping... Now it's 
          too far away. I can't see it anymore.~";
       ThrownAt:
-        print "[DestructionDisk.ThrownAt before]";
         if( self hasnt open)
         {
           move noun to location;
-          print "Seems like it bounced off. The disk looks undamaged.~";
-          !noun.AttemptToDamage();
+          print "^~Seems like it bounced off. The disk looks undamaged.~";
+          < AttemptToDamage noun >;
         }
         else
         {
           remove noun;
-          print "Looks like it went into the disk.~";
+          print "^~Looks like it went into the disk.~";
         };
-        rfalse;
+        rtrue;
 
       Open:
         if( self has open )
