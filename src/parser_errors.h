@@ -1,39 +1,67 @@
 [ ParserError error_type;
   switch( error_type )
   {
-    case STUCK_PE: return StuckError();
-!    case UPTO_PE: return UpToError();
-!    case NUMBER_PE: return NumberError();
-!    case CANTSEE_PE: return CantSeeError();
-!    case TOOLIT_PE: return TooLittleError();
-!    case NOTHELD_PE: return NotHeldError();
-!    case MULTI_PE: return MultipleObjectsError();
-!    case VAGUE_PE: return VagueError();
-!    case EXCEPT_PE: return ExclusionError();
-!    case ANIMA_PE: return AnimateError();
-!    case VERB_PE: return UnkownVerbError();
-!    case SCENERY_PE: return SceneryError();
-!    case ITGONE_PE: return ItGoneError();
-!    case JUNKAFTER_PE: return JunkAfterError();
-!    case TOOFEW_PE: return TooFewError();
-!    case NOTHING_PE: return NothingError();
+    STUCK_PE: return StuckError();
+    UPTO_PE: return UpToError();
+    NUMBER_PE: return NumberError();
+    CANTSEE_PE: return CantSeeError();
+    TOOLIT_PE: return TooLittleError();
+    NOTHELD_PE: return NotHeldError();
+!    MULTI_PE: return MultipleObjectsError();
+    VAGUE_PE: return VagueError();
+!    EXCEPT_PE: return ExclusionError();
+!    ANIMA_PE: return AnimateError();
+!    VERB_PE: return UnkownVerbError();
+!    SCENERY_PE: return SceneryError();
+!    ITGONE_PE: return ItGoneError();
+!    JUNKAFTER_PE: return JunkAfterError();
+!    TOOFEW_PE: return TooFewError();
+!    NOTHING_PE: return NothingError();
     default: rfalse;
-  }
+  };
 ];
 
 [ StuckError;
   switch( random(3) )
   {
-    case 1: print_ret "~Sorry, didn't catch that. Please clarify.~";
-    case 2: print_ret "~Er, what? Not sure what you meant by that.~";
-    case 3: print_ret "~Didn't copy that. Uncertain how to proceed.~";
+    1: print_ret "~Sorry, didn't catch that. Please clarify.~";
+    2: print_ret "~Er, what? Not sure what you meant by that.~";
+    3: print_ret "~Didn't copy that. Uncertain how to proceed.~";
   }
 ];
 
-![ UpToError;
-!]
+[ UpToError;
+  print_ret "~I understood the first part, but the rest...~";
+];
 
-[ CantSeeError  wordnum word nwords stop pos end;
+[ NumberError;
+  print_ret "~I need a number, and I'm pretty sure that wasn't a number.~";
+];
+
+[ CantSeeError;
+  print "~Uhhhh... I don't see any '";
+  PrintErroneousInput();
+  print_ret "' anywhere.~";
+];
+
+[ TooLittleError;
+  print_ret "~I think you need to tell me more.~";
+];
+
+[ NotHeldError;
+  print_ret "~I'm not holding that at the moment.~";
+];
+
+[ VagueError;
+  print_ret
+    "~I'm not sure which you're referring to.";
+];
+
+[ TooFewError;
+  print_ret "~I don't think I have enough to do that...~";
+];
+
+[ PrintErroneousInput wordnum word nwords stop pos end;
   wordnum=saved_oops;
 #ifdef TARGET_GLULX;
   nwords=parse-->0;
@@ -49,8 +77,6 @@
     word=parse-->(wordnum*2-1);
 #endif;
     if( word && ( word->#dict_par1 & $80) ~= $80 ) rfalse;
-
-    print "~Uhhhh... I don't see any '";
     do
     {
       pos=WordAddress(wordnum); end = Wordlength(wordnum) + pos;
@@ -73,7 +99,6 @@
       if( ~~stop ) print "' '";
     } until ( stop );
     oops_from = saved_oops;
-    print_ret "' anywhere.~";
   }
 ];
 
