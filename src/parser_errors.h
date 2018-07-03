@@ -15,7 +15,7 @@
 !    SCENERY_PE: return SceneryError();
 !    ITGONE_PE: return ItGoneError();
 !    JUNKAFTER_PE: return JunkAfterError();
-!    TOOFEW_PE: return TooFewError();
+    TOOFEW_PE: return TooFewError();
 !    NOTHING_PE: return NothingError();
     default: rfalse;
   };
