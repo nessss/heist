@@ -1,6 +1,3 @@
-Include "linklpa";
-Include "linklv";
-
 Object DisguiseAmulet "jeweled amulet"
   has transparent,
   with activated false,

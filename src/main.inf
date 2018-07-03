@@ -12,10 +12,12 @@ Object LibraryMessages
          !Examine:
        ];
 
+Include ">parser_errors.h";
+
 Include "VerbLib";
 
-Link "disguise_amulet";
-Link "destruction_disk";
+Include ">disguise_amulet";
+Include ">destruction_disk";
 
 Class ObjectiveDevice;
 

@@ -1,6 +1,3 @@
-Include "linklpa";
-Include "linklv";
-
 Object DestructionDisk "disk"
   has transparent ~open openable container,
   with 
