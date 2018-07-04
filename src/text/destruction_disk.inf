@@ -1,0 +1,108 @@
+! ---------- Destruction_Disk ----------
+! ---------- description ----------
+Constant D_DISK_DESC_COMMON = 
+  "~It's a silvery-metal disk, about the diameter of a coffee mug.
+    One side is smooth, and the other ";
+
+Constant D_DISK_DESC_OPEN =
+  "features a field of absolute darkness. I... don't like
+   looking at that. ";
+
+Constant D_DISK_DESC_CLOSED =
+  "is mostly covered by an aperture of the same metal. ";
+
+Constant D_DISK_DESC_KNOB =
+  "On the edge of the disk is a knob that looks like it could
+   be pushed around the circumfrence.~";
+
+! ---------- before ----------
+! ---------- Receive ----------
+Constant D_DISK_BEFORE_RECEIVE_CLOSED =
+  "~It doesn't seem like anything could be put into the disk
+   as it is. Perhaps if the aperture were open?~";
+
+Constant D_DISK_BEFORE_RECEIVE_OPEN_0 =
+! "~", RandomAffirmative(),
+ "I'm dropping ";
+! (the) noun
+Constant D_DISK_BEFORE_RECEIVE_OPEN_1 = 
+  " into the disk. It's beginning to fall. Uh, it's just dropping...
+    Now it's too far away. I can't see it anymore.~";
+
+! ---------- ThrownAt ----------
+Constant D_DISK_BEFORE_THROWNAT_CLOSED =
+  "^~Seems like it bounced off. The disk looks undamaged.~";
+
+Constant D_DISK_BEFORE_THROWNAT_OPEN = 
+  "^~Looks like it went into the disk.~";
+
+! ---------- Open ----------
+Constant D_DISK_BEFORE_OPEN_OPENED = 
+  "~The aperture is already fully open. I can't open it further.~";
+
+! ---------- Close ----------
+Constant D_DISK_BEFORE_CLOSE_CLOSED = 
+  "~The aperture is already closed. Pushing the knob in that
+   direction seems to do nothing.~";
+
+! ---------- Take ----------
+Constant D_DISK_AFTER_FIRST_TAKE = 
+! "~", RandomAffirmative(),
+  "picking up the disk. Hmmm... it's very light for a metal disk
+   of its size.~";
+
+Constant D_DISK_AFTER_TAKE = 
+! "~", RandomAffirmative(),
+  "I've picked the disk back up.~";
+
+! ---------- after ----------
+! ---------- Drop ----------
+Constant D_DISK_AFTER_FIRST_DROP =
+  "~Drop it? Just, like, on the floor? Ok... I guess it does
+   seem pretty durable. It made a soft clanging sound when it
+   hit the floor. Doesn't appear to be damaged.~";
+
+Constant D_DISK_AFTER_DROP =
+! "~", RandomAffirmative(),
+  "dropping the disk again.~";
+
+! ---------- Open ----------
+Constant D_DISK_AFTER_FIRST_OPEN =
+! "~", RandomAffirmative(),
+  "I'm sliding the knob around the edge of the disk.
+   The aperture is opening.
+   Woah, It's so dark underneath! It's like that vantablack stuff
+   that scientists came up with; 'the blackest black'.
+   Looking at it gives me shudders.~";
+
+Constant D_DISK_AFTER_OPEN =
+! "~", RandomAffirmative(),
+  "opening the disk back up. There's that black void again.~";
+
+! ---------- Close ----------
+Constant D_DISK_AFTER_FIRST_CLOSE =
+  "~Don't have to tell me twice. I'm sliding the knob back around
+   the edge of the disk, and, sure enough, the aperture is closing.
+   I'm feeling relieved now that that thing is shut.~";
+
+Constant D_DISK_AFTER_CLOSE =
+! "~", RandomAffirmative(),
+  "closing the disk again. Glad that void isn't visible anymore.~";
+
+! ---------- Destruction_Disk_Aperture ----------
+Constant D_DISK_APER_DESC_CLOSED =
+  "~It's an aperture occupying most of one side of the disk.
+   Seems to be made of the same metal as the amulet.~";
+
+Constant D_DISK_APER_DESC_OPEN =
+  "~The aperture's open, and a black void is visible inside. It makes
+   me feel a little nauseous looking directly at it.~";
+
+! ---------- Destruction_Disk_Knob ----------
+Constant D_DISK_KNOB_DESC_CLOSED =
+  "~It's a knob on the bottom edge of the disk. Looks like it could be
+   pushed around the edge.~";
+
+Constant D_DISK_KNOB_DESC_OPEN =
+  "~It's a knob on the top edge of the disk. Looks like it could be
+   pushed around the edge.~";
