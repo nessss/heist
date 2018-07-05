@@ -1,0 +1,58 @@
+Constant D_AMU_DESC =
+  "~It's an oblong silvery-metal amulet, with matching chain.
+   In the center of the amulet is a large jewel.
+   Two ovals, one of dark crystal and one of bright, both 
+   with iridescent tints, are set to the right and left of the 
+   large jewel, respectively.
+   Oh, and it looks like there is also a small lever on the edge.~";
+
+Constant D_AMU_BEFORE_THROWAT_SECOND_HELD = 
+  "~I think I should put that down before throwing something at it.~";
+
+Constant D_AMU_JEWEL_DESC =
+  "~It's a large jewel in something similar to an emerald cut,
+    set in the center of the amulet.~";
+
+Constant D_AMU_ATMPT_DMG =
+  "^~The amulet appears undamaged.~";
+
+! ======== Buttons ========
+! -------- Dark --------
+Constant D_AMU_D_BTN_FIRST_DESC_X_FIRST =
+  "~It's a small dark crystal oval, set to the right side of
+   the amulet. Its surface has this strange iridescent tint...
+   seems to shift and swirl, even when I hold the amulet still.
+   It protrudes from the amulet slightly.~";
+
+Constant D_AMU_D_BTN_DESC_COM =
+  "~It's the dark crystal oval, to the right of the large
+   jewel on the amulet. ";
+
+Constant D_AMU_D_BTN_DESC_X_FIRST = 
+  "It has that weird sheen.~";
+
+Constant D_AMU_D_BTN_DESC_X_SECOND = 
+  "It has the same weird sheen as the bright crystal.~";
+
+! -------- Bright --------
+Constant D_AMU_B_BTN_FIRST_DESC_X_FIRST =
+  "~It's a small bright crystal oval, set to the left side of
+    the amulet. Its surface has this strange iridescent tint...
+    seems to shift and swirl, even when I hold the amulet still.
+    It protrudes from the amulet slightly.~";
+
+Constant D_AMU_B_BTN_DESC_COM =
+  "~It's the bright crystal oval, to the left of the large
+   jewel on the amulet. ";
+
+Constant D_AMU_B_BTN_DESC_X_FIRST = 
+  "It has that weird sheen.~";
+
+Constant D_AMU_B_BTN_DESC_X_SECOND = 
+  "It has the same weird sheen as the dark crystal.~";
+
+! ======== Lever ========
+
+Constant D_AMU_LEV_DESC =
+  "~It's a small silvery-metal lever set into the side of the amulet.
+   It only protudes a centimeter or so.~";
