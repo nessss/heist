@@ -1,0 +1,14 @@
+Constant PORT_HOLE_DESC_OPEN =
+  "~A V-shaped frame of silvery metal. It has a right angle, and each leg is
+    the same length, about a quarter meter. It's split along its width looks
+    like it hinges at the ends, like it would unfold into a square.~";
+
+Constant PORT_HOLE_DESC_CLOSED =
+  "~A square frame of silvery metal, about a quarter meter to a side.~";
+
+Constant PORT_HOLE_AFT_OPEN =
+  "looks like it hinges open at the corners here... Yep. It split in half and
+   folded out to make a square.~";
+
+Constant PORT_HOLE_AFT_CLOSE =
+  "folding it back up. It's back in the V shape now.~";

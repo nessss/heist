@@ -1,0 +1,25 @@
+Include ">text/devices/portable_hole";
+
+Object PortableHole "V-shaped frame"
+  has openable ~open,
+  with name 'v-shaped' 'frame',
+       description [;
+         if( self has open )
+         {
+           print_ret (string) PORT_HOLE_DESC_OPEN;
+         }
+         else
+         {
+           print_ret (string) PORT_HOLE_DESC_CLOSED;
+         }
+       ],
+       before [;
+       ],
+       after [;
+         Open:
+           print "~", (string) RandomAffirmative();
+           print_ret (string) PORT_HOLE_AFT_OPEN;
+         Close: 
+           print "~", (string) RandomAffirmative();
+           print_ret (string) PORT_HOLE_AFT_CLOSE;
+       ];

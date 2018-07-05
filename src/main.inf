@@ -12,14 +12,17 @@ Fake_Action AttemptToDamage;
 Object LibraryMessages
   with before [;
          !Examine:
+       ],
+       after [;
        ];
 
 Include ">parser_errors.h";
 
 Include "VerbLib";
 
-Include ">disguise_amulet";
-Include ">destruction_disk";
+Include ">devices/disguise_amulet";
+Include ">devices/destruction_disk";
+Include ">devices/portable_hole";
 
 Include ">clothes.h";
 
@@ -138,6 +141,7 @@ Room Test_Closet "Test Closet"
   location = Test_Chamber;
   move DisguiseAmulet to Test_Chamber_Table;
   move DestructionDisk to Test_Chamber_Table;
+  move PortableHole to Test_Chamber_Table;
             "^^^
               ~Is this thing on? It's certainly strange, thinking in
               text like this. Funny that they designed a neural comms
