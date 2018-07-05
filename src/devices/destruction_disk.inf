@@ -1,4 +1,4 @@
-Include ">text/destruction_disk";
+Include ">text/devices/destruction_disk";
 
 Object DestructionDisk "disk"
   has transparent ~open openable container,

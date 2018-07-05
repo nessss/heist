@@ -1,4 +1,4 @@
-include ">text/disguise_amulet";
+include ">text/devices/disguise_amulet";
 
 Object DisguiseAmulet "jeweled amulet"
   has transparent,
