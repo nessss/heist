@@ -23,6 +23,7 @@ Include "VerbLib";
 Include ">devices/disguise_amulet";
 Include ">devices/destruction_disk";
 Include ">devices/portable_hole";
+Include ">devices/universal_key";
 
 Include ">clothes.h";
 
@@ -142,13 +143,14 @@ Room Test_Closet "Test Closet"
   move DisguiseAmulet to Test_Chamber_Table;
   move DestructionDisk to Test_Chamber_Table;
   move PortableHole to Test_Chamber_Table;
+  move UniversalKey to Test_Chamber_Table;
             "^^^
               ~Is this thing on? It's certainly strange, thinking in
               text like this. Funny that they designed a neural comms
               implant that only communicates through text. Must be some
               reason the spooks want to keep it text-only. They don't
               pay me to wonder about the reasons they do things the way
-              they do. They pay me to be disposable and test these
+              they do, though. They pay me to be disposable and test these
               devices.~^^";
 ];
 

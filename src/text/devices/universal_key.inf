@@ -1,0 +1,16 @@
+Constant U_KEY_DESC =
+  "~It's a key, with an old-fashioned filigree handle of silvery metal.
+    The blade... hurts to look at. I can't find words to describe it before
+    I realize those words no longer apply.~";
+
+Constant U_KEY_HANDLE_DESC =
+  "~The handle to the key; made of that silvery metal. It's in the style of
+    one of those old keys I've only ever seen in old murder mystery movies.
+    The handle doesn't seem to have any moving parts.~";
+
+Constant U_KEY_BLADE_DESC =
+  "~The key's blade... Looking directly at it gives me a piercing headache.
+    It's made of... Wait... Every time I try and describe it, I realize the
+    words don't apply anymore, if they ever did. It doesn't seem to be changing
+    while I'm looking at it... But nevertheless, the words never seem to fit
+    when I go to transmit.~";

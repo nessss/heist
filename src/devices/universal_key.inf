@@ -1,0 +1,14 @@
+Include ">text/devices/universal_key";
+
+Object UniversalKey "key"
+  has transparent,
+  with name 'key',
+  description [; print_ret (string) U_KEY_DESC; ];
+
+Object -> UniversalKey_Handle "key handle"
+  with name 'handle',
+  description [; print_ret (string) U_KEY_HANDLE_DESC; ];
+
+Object -> UniversalKey_Blade "key blade"
+  with name 'blade',
+  description [; print_ret (string) U_KEY_BLADE_DESC; ];
