@@ -1,0 +1,10 @@
+Include ">text/devices/duplicator";
+
+Object Duplicator "three-legged orb"
+  has  transparent,
+  with name 'three-legged' 'legged' 'orb',
+       description [; print_ret (string) DUP_DESC; ];
+
+Object -> Duplicator_Leg "orb leg"
+  with name 'wiry' 'leg',
+       description [; print_ret (string) DUP_LEG_DESC; ];

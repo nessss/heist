@@ -1,0 +1,11 @@
+Constant DUP_DESC =
+  "~It's an orb, about the size of a grapefruit, with three wiry legs, each
+    about 20 centimeters long, extending at right angles to each other, all
+    of silvery metal. The legs each end in a flat pad about 2 centimeters in
+    diameter. The orb itself has three nubs that protrude slightly, in between
+    each pair of legs.~";
+
+Constant DUP_LEG_DESC =
+  "~One of the orb's wiry legs. It's made of that silvery metal, and ends in a
+    little pad, which swivels with a ball-and-socket joint with the leg, allowing
+    it to tilt to different angles.";
