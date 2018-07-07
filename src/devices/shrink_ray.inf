@@ -1,0 +1,18 @@
+Include ">text/devices/shrink_ray";
+
+Object ShrinkRay "trapezoidal box"
+  has transparent,
+  with name 'trapezoid' 'trapezoidal' 'box',
+       description [; print_ret (string) S_RAY_DESC; ];
+
+Object -> ShrinkRay_Lens "lens"
+  with name 'lens',
+       description [; print_ret (string) S_RAY_LENS_DESC; ];
+
+Object -> ShrinkRay_UpButton "front button"
+  with name 'front' 'button',
+       description [; print_ret (string) S_RAY_UP_BTN_DESC; ];
+
+Object -> ShrinkRay_DownButton "rear button"
+  with name 'rear' 'back' 'button',
+       description [; print_ret (string) S_RAY_DN_BTN_DESC; ];

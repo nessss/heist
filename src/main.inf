@@ -24,6 +24,7 @@ Include ">devices/disguise_amulet";
 Include ">devices/destruction_disk";
 Include ">devices/portable_hole";
 Include ">devices/universal_key";
+Include ">devices/shrink_ray";
 
 Include ">clothes.h";
 
@@ -144,6 +145,7 @@ Room Test_Closet "Test Closet"
   move DestructionDisk to Test_Chamber_Table;
   move PortableHole to Test_Chamber_Table;
   move UniversalKey to Test_Chamber_Table;
+  move ShrinkRay to Test_Chamber_Table;
             "^^^
               ~Is this thing on? It's certainly strange, thinking in
               text like this. Funny that they designed a neural comms

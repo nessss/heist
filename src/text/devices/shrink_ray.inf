@@ -1,0 +1,20 @@
+Constant S_RAY_DESC =
+  "~It's a trapezoidal box of silvery metal, about 15 centimeters along its
+    longest dimension, 10 along the next shortest side, 6 along the shortest,
+    and about 4 centimeters deep. There's a small lens, about 2 centimeters
+    in diameter, set into what I'm now considering the front. On top there
+    are two buttons, one toward the front, the other right behind it toward
+    the back, both of the same silvery metal as the rest of the box.~";
+
+Constant S_RAY_LENS_DESC =
+  "~A lens, about 2 centimeters in diameter, set into the front of the
+    trapezoidal box. It has a strange iridescent sheen which seems to shimmer
+    and swirl even when the box is still.~";
+
+Constant S_RAY_UP_BTN_DESC =
+  "~The front button on the trapezoidal box. It's unlabeled, and made of the
+    same silvery metal as the rest of the box.~";
+
+Constant S_RAY_DN_BTN_DESC =
+  "~The rear button on the trapezoidal box. It's unlabeled, and made of the
+    same silvery metal as the rest of the box.~";
