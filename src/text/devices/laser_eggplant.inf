@@ -1,0 +1,21 @@
+Constant L_EGG_DESC =
+  "~It's a silvery-metal device shaped like a straightened-out eggplant.
+    The large end is about as big around as a grapefruit, the small end as
+    big as a tangerine. There's a lens, about 2 centimeters diameter, on the
+    front of the small end. The hemisphere making up the back of the large end
+    looks like a separate piece and has small ridged protrusions running radially
+    from its center.~";
+
+
+Constant L_EGG_DIAL_DESC =
+  "~A hemisphere making up the back of the eggplant-shaped device. It has ridges
+    running from the center of the back of the device to the edge of the hemisphere.
+    One of the ridges extends slightly past the edge of the hemisphere; opposite it,
+    on the other section of the device, there are four symbols, none of which I
+    recognize or can describe. The protruding ridge points to the leftmost symbol.~";
+
+Constant L_EGG_DIAL_KNOWN_DESC =
+  "~A hemisphere making up the back of the eggplant-shaped device. It has ridges
+    running from the center of the back of the device to the edge of the hemisphere.
+
+    It's a separate piece, and can be twisted to activate the device's beam.~";

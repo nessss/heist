@@ -1,0 +1,22 @@
+Include ">text/devices/laser_eggplant";
+
+Object LaserEggplant "eggplant-shaped object"
+  has transparent,
+  with name 'eggplant' 'eggplant-shaped',
+  description [; print_ret (string) L_EGG_DESC; ];
+
+Object LaserEggplant_Dial "hemisphere"
+  with name 'hemisphere' 'dial',
+       has_been_turned false,
+  description [; 
+    if( self.has_been_turned )
+    {
+      print_ret (string) L_EGG_DIAL_KNOWN_DESC;
+    }
+    else
+    {
+      print_ret (string) L_EGG_DIAL_DESC; 
+    }
+  ],
+  before [;
+  ];
