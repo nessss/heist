@@ -3,11 +3,21 @@ Include ">text/devices/laser_eggplant";
 Object LaserEggplant "eggplant-shaped object"
   has transparent,
   with name 'eggplant' 'eggplant-shaped',
-  description [; print_ret (string) L_EGG_DESC; ];
+  description [; 
+    print (string) L_EGG_DESC; 
+  ],
+  before [;
+    TurnCCW: << TurnCCW LaserEggplant_Dial >>;
+    TurnCW: << TurnCW LaserEggplant_Dial >>;
+    TurnOn: << TurnOn LaserEggplant_Dial >>;
+    TurnOff: << TurnOff LaserEggplant_Dial >>;
+    Turn: << Turn LaserEggplant_Dial >>;
+  ];
 
-Object LaserEggplant_Dial "hemisphere"
+Object -> LaserEggplant_Dial "hemisphere"
   with name 'hemisphere' 'dial',
        has_been_turned false,
+       dial_setting 0,
   description [; 
     if( self.has_been_turned )
     {
@@ -19,4 +29,70 @@ Object LaserEggplant_Dial "hemisphere"
     }
   ],
   before [;
+    TurnOn:
+      if( self.dial_setting > 0 )
+      {
+        print (string) L_EGG_DIAL_ALREADY_ON;
+        print_ret (string) L_EGG_BEAM-->self.dial_setting;
+      }
+      else
+      {
+        << TurnCW self >>;
+      }
+    TurnOff:
+      if( self.dial_setting == 0 )
+      {
+        print_ret (string) L_EGG_DIAL_ALREADY_OFF;
+      }
+      else
+      {
+        self.dial_setting = 0;
+        print (string) L_EGG_DIAL_OFF;
+        print_ret (string) L_EGG_CCW-->0;
+      }
+    TurnCCW:
+      if( self.dial_setting == 0 )
+      {
+        print_ret (string) L_EGG_DIAL_TURN_FAIL;
+      }
+      else
+      {
+        self.dial_setting = self.dial_setting - 1;
+        if( self.dial_setting == 0 )
+        {
+          remove LaserEggplant_Beam;
+        }
+        print (string) L_EGG_CCW_COM;
+        print_ret (string) L_EGG_CCW-->self.dial_setting;
+      }
+    TurnCW:
+      if( self.dial_setting == 4 )
+      {
+        print_ret (string) L_EGG_DIAL_TURN_FAIL;
+      }
+      else
+      {
+        if( self.dial_setting == 0 )
+        {
+          move LaserEggplant_Beam to LaserEggplant;
+        }
+        self.dial_setting = self.dial_setting + 1;
+        print (string) L_EGG_CW_COM;
+        print_ret (string) L_EGG_CW-->self.dial_setting;
+      }
+      Turn: print_ret (string) L_EGG_DIAL_TURN_NO_DIR;
+  ];
+
+Object LaserEggplant_Beam "beam"
+  with name 'beam' 'ray' 'laser',
+  description [;
+    if( LaserEggplant_Dial.dial_setting == 0 )
+    {
+      print_ret "BUG! This should never be seen in normal play. Code: EGG_0";
+    }
+    else
+    {
+      print (string) L_EGG_BEAM_COM;
+      print_ret (string) L_EGG_BEAM-->LaserEggplant_Dial.dial_setting;
+    }
   ];

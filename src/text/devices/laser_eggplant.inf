@@ -11,11 +11,77 @@ Constant L_EGG_DIAL_DESC =
   "~A hemisphere making up the back of the eggplant-shaped device. It has ridges
     running from the center of the back of the device to the edge of the hemisphere.
     One of the ridges extends slightly past the edge of the hemisphere; opposite it,
-    on the other section of the device, there are four symbols, none of which I
+    on the other section of the device, there are five symbols, none of which I
     recognize or can describe. The protruding ridge points to the leftmost symbol.~";
 
 Constant L_EGG_DIAL_KNOWN_DESC =
   "~A hemisphere making up the back of the eggplant-shaped device. It has ridges
     running from the center of the back of the device to the edge of the hemisphere.
-
     It's a separate piece, and can be twisted to activate the device's beam.~";
+
+Constant L_EGG_DIAL_TURN_FAIL =
+  "~Doesn't seem like the dial turns any further in that direction.~";
+
+Constant L_EGG_DIAL_TURN_NO_DIR =
+  "~In which direction?~";
+
+Constant L_EGG_DIAL_ALREADY_ON =
+  "~It's already emitting ";
+
+Constant L_EGG_DIAL_ALREADY_OFF =
+  "~It's not on right now.~";
+
+! ----- Turning CCW ------
+
+Constant L_EGG_DIAL_OFF =
+  "~I've turned the dial back to the ";
+
+Constant L_EGG_CCW_COM =
+  "~I've turned the dial counterclockwise, and the raised ridge is now pointing
+    at the ";
+
+Array L_EGG_CCW -->
+
+  "first symbol. The beam has turned off.~"
+
+  "second symbol. The beam has reduced to a modest red glow.~"
+
+  "third symbol. The beam has reduced to a moderate yellow shine.~"
+
+  "fourth symbol. The beam has reduced to a bright green.~"
+
+  "BUG! This should never be seen in normal play. Code: L_EGG_CCW_3";
+
+! ----- Turning CW ------
+
+Constant L_EGG_CW_COM =
+  "~I've turned the dial clockwise, and the raised ridge is now pointing
+    at the ";
+
+Array L_EGG_CW -->
+  "BUG! This should never be seen in normal play. Code: L_EGG_CW_0"
+
+  "second symbol. A faint red beam has begun emitting from the lens on the front of
+    the device.~"
+
+  "third symbol. The beam, now yellow, has increased in intensity to a
+    moderate glow.~"
+
+  "fourth symbol. The beam is now a bright green.~"
+
+  "fifth symbol. The beam is now an intense violet.~";
+
+! ----- Beam descriptions ------
+
+Constant L_EGG_BEAM_COM =
+  "~The lens is emitting ";
+
+Array L_EGG_BEAM -->
+
+  "a faint red beam.~"
+
+  "a yellow beam.~"
+
+  "a bright green beam.~"
+
+  "an intense violet beam.~";

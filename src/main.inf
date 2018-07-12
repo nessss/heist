@@ -26,6 +26,7 @@ Include ">devices/portable_hole";
 Include ">devices/universal_key";
 Include ">devices/shrink_ray";
 Include ">devices/duplicator";
+Include ">devices/laser_eggplant";
 
 Include ">clothes.h";
 
@@ -148,6 +149,7 @@ Room Test_Closet "Test Closet"
   move UniversalKey to Test_Chamber_Table;
   move ShrinkRay to Test_Chamber_Table;
   move Duplicator to Test_Chamber_Table;
+  move LaserEggplant to Test_Chamber_Table;
             "^^^
               ~Is this thing on? It's certainly strange, thinking in
               text like this. Funny that they designed a neural comms
@@ -174,6 +176,16 @@ Verb 'grind'
 [ SlideSub; "~Slide... what?~"; ];
 Verb 'slide'
     * noun -> Slide;
+
+[ TurnCWSub; "~Ok, I've turned it clockwise. Didn't seem to do much.~"; ];
+[ TurnCCWSub; "~Ok, I've turned it counterclockwise. Didn't seem to do much.~"; ];
+[ TurnOnSub; "~It's not obvious if or how that can be turned on.~"; ];
+[ TurnOffSub; "~It's not obvious if or how that can be turned off.~"; ];
+Extend 'turn' first 
+  * multi 'clockwise'/'cw' -> TurnCW
+  * multi 'counterclockwise'/'ccw' -> TurnCCW
+  * multi 'off' -> TurnOff
+  * multi 'on' -> TurnOn;
 
 [ RandomAffirmative;
     switch( random(3) )
